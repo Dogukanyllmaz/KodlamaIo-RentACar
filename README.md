@@ -1,3 +1,4 @@
+[![GitHub license](https://img.shields.io/github/license/Dogukanyllmaz/RentalProject)](https://github.com/Dogukanyllmaz/RentalProject/blob/master/LICENSE)
 ![GitHub Repo stars](https://img.shields.io/github/stars/dogukanyllmaz/rentalproject?color=yellow)
 
 <h1 align="center">Rent a Car Project : Araba Kiralama Otomasyonu</h1> 
