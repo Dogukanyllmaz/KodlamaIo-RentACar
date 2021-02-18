@@ -10,6 +10,22 @@
 - **Entities, DataAccess, Business, ConsoleUI ve WebAPI katmanlarından oluşmaktadır. Hala geliştirme aşamasında.**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
 
+## Installation
+Aşağıdaki paketler NuGet aracığıyla **DataAccess** katmanına eklenmelidir. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (3.1.11)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore.SqlServer (3.1.11)` <br>
+
+Aşağıdaki paket NuGet aracığıyla **Core** katmanına eklenmelidir. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore.SqlServer (3.1.11)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Castle.Core (4.4.1)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `FluentValidation (9.5.1)` <br>
+
+Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac (6.1.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extensions.DependencyInjection (7.1.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extras.DynamicProxy (6.0.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `FluentValidation (9.5.1)` <br>
+
 ## Layers
 🗃 **``Entities Layer``** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Concrete`` <br>
@@ -130,3 +146,84 @@
 
 ## 🗃 SQL Query
 &nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentACarSQLQuery.sql](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql)
+
+## Tables in Database
+<table>
+  <tr>
+    <td>Cars</td>
+     <td>Brands</td>
+     <td>Colors</td>
+  </tr>
+  <tr>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | int
+Name | NVARCHAR(50)
+BrandId | int
+ColorId | int
+DailyPrice | decimal
+ModelYear | int
+Description | nvarchar(50)
+   
+   </td>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | int
+rName | nvarchar(50)
+   
+   </td>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | int
+Name | nvarchar(50)
+   
+   </td>
+  </tr>
+ </table>
+ 
+ <table>
+  <tr>
+    <td>Customers</td>
+     <td>Rentals</td>
+     <td>Users</td>
+  </tr>
+  <tr>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | int
+UserId | int
+CompanyName | nvarchar(50)
+   
+   </td>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+Id | int
+CarId | int
+CustomerId | int
+RentDate | datetime
+ReturnDate | datetime
+
+   </td>
+    <td>
+
+Variable Name | Data Type
+------------ | -------------
+UserId | int
+FirstName | nvarchar(50)
+LastName | nvarchar(50)
+Email | nvarchar(50)
+Password | nvarchar(50)
+
+   </td>
+  </tr>
+ </table>
