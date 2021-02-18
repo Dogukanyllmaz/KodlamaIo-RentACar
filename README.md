@@ -173,7 +173,7 @@ Description | nvarchar(50)
 Variable Name | Data Type
 ------------ | -------------
 Id | int
-rName | nvarchar(50)
+Name | nvarchar(50)
    
    </td>
     <td>
