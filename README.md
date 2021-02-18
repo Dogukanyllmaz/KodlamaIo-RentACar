@@ -53,7 +53,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``ValidationRules`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``FluentValidation`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [BrandValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/BrandValidator.cs) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CarValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/CarValidator.cs)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CarValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/CarValidator.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ColorValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/ColorValidator.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CustomerValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/CustomerValidator.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [RentalValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/RentalValidator.cs) <br>
@@ -71,7 +71,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  📃 [EfUserDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Concrete/EntityFramework/EfUserDal.cs) <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Abstract`` <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ICarDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/ICarDal.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ICarDal.cs]https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/ICarDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IBrandDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IBrandDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IColorDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IColorDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ICustomerDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/ICustomerDal.cs) <br>
