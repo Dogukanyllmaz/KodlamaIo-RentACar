@@ -244,3 +244,5 @@ Password | nvarchar(50)
    </td>
   </tr>
  </table>
+
+ _**Code released under the [MIT](https://github.com/Dogukanyllmaz/RentalProject/blob/master/LICENSE) License. © 2021 Doğukan Yılmaz**_
