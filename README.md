@@ -10,6 +10,14 @@
 - **Entities, DataAccess, Business, ConsoleUI ve WebAPI katmanlarından oluşmaktadır. Hala geliştirme aşamasında.**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
 
+## Table of Contents
+- [About](#about)
+- [Installation](#installation)
+- [Layers](#layers)
+- [SQL Query](#sql-query)
+- [Tables in Database](#tables-in-database)
+
+
 ## Installation
 Aşağıdaki paketler NuGet aracığıyla **DataAccess** katmanına eklenmelidir. <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (3.1.11)` <br>
