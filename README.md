@@ -1,6 +1,6 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/dogukanyllmaz/rentalproject?color=yellow)
 
-<h1 align="center">Rent a Car Project : Araba Kiralama Sistemi</h1> 
+<h1 align="center">Rent a Car Project : Araba Kiralama Otomasyonu</h1> 
 
 <p align="center">
   <img src="https://i.ytimg.com/vi/xAImzF4M2MM/maxresdefault.jpg" width= "600" alt ="Rent aCar">
