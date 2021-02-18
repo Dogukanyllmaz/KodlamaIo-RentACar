@@ -109,7 +109,7 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``DataAccess`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IEntityRepository.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/DataAccess/IEntityRepository.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``EntityFramework`` <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [EfEntityRepositoryBase.cs](https://github.com/Dogukanyllmaz/RentalProject/tree/master/Core/DataAccess/EntityFramework) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [EfEntityRepositoryBase.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/DataAccess/EntityFramework/EfEntityRepositoryBase.cs) <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Utilities`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Results`` <br>
