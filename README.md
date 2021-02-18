@@ -1,5 +1,3 @@
-# RentalProject
-
 ![GitHub Repo stars](https://img.shields.io/github/stars/dogukanyllmaz/rentalproject?color=yellow)
 
 <h1 align="center">Rent a Car Project : Araba Kiralama Sistemi</h1> 
