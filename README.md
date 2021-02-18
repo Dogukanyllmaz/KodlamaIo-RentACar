@@ -58,7 +58,7 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IUserService.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/Abstract/IUserService.cs) <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Constants`` <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [Messages.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/Constants/Messages.cs) <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [Messages.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/Constants/Messages.cs) <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``DependencyResolvers`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Autofac`` <br>
@@ -71,7 +71,7 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [ColorValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/ColorValidator.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [CustomerValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/CustomerValidator.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [RentalValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/RentalValidator.cs) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [UserValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/UserValidator.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [UserValidator.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Business/ValidationRules/FluentValidation/UserValidator.cs) <br><br>
 
 🗃 **``Data Access Layer``** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Concrete`` <br>
@@ -90,7 +90,7 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IColorDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IColorDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ICustomerDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/ICustomerDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IRentalDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IRentalDal.cs) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IUserDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IUserDal.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IUserDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IUserDal.cs) <br><br>
 
 🗃 **``Core Layer``** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Aspects`` <br>
@@ -123,12 +123,12 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ErrorDataResult.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Results/Concrete/ErrorDataResult.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [Result.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Results/Concrete/Result.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [SuccessResult.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Results/Concrete/SuccessResult.cs) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ErrorResult.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Results/Concrete/ErrorResult.cs) <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [ErrorResult.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Results/Concrete/ErrorResult.cs) <br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Interceptors`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [AspectInterceptorSelector.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Interceptors/AspectInterceptorSelector.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [MethodInterception.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Interceptors/MethodInterception.cs) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [MethodInterceptionBaseAttribute.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📃 [MethodInterceptionBaseAttribute.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/Core/Utilities/Interceptors/MethodInterceptionBaseAttribute.cs) <br><br>
 
 🗃 **``Presentation Layer``** <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📃 [Program.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/ConsoleUI/Program.cs)<br><br>
@@ -145,7 +145,7 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [UsersController.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/WebAPI/Controllers/UsersController.cs) <br><br>
 
 ## 🗃 SQL Query
-&nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentACarSQLQuery.sql](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql)
+&nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentACarSQLQuery.sql](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql)<br>
 
 ## Tables in Database
 <table>
