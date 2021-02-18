@@ -10,8 +10,16 @@
 - **Entities, DataAccess, Business, ConsoleUI ve WebAPI katmanlarından oluşmaktadır. Hala geliştirme aşamasında.**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
 
+##Latest Updates
+- Autofac, Autofac.Extensions.DependencyInjection, Autofac.Extras.DynamicProxy projeye eklendi.
+- AOP ve IoC yapıları kullanılmaya başlandı.
+- FluentValidation eklendi.
+- Business katmanı güncellendi. Artık koşul döngüleri yerine attributelar var.
+- Kodlar Autofac'e uygun hale getirildi.
+
 ## Table of Contents
 - [About](#about)
+- [Latest Updates](#latest-updates)
 - [Installation](#installation)
 - [Layers](#layers)
 - [SQL Query](#sql-query)
