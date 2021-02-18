@@ -3,7 +3,7 @@
 <h1 align="center">Rent a Car Project : Araba Kiralama Otomasyonu</h1> 
 
 <p align="center">
-  <img src="https://ak.picdn.net/shutterstock/videos/1041453235/thumb/1.jpg?ip=x480" width= "600" alt ="Rent aCar">
+  <img src="https://forextravel.com.au/images/car-ban.png" width= "600" alt ="Rent aCar">
 </p>
 
 ## 🎯 About
