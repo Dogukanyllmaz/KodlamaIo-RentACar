@@ -78,7 +78,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IRentalDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IRentalDal.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [IUserDal.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/DataAccess/Abstract/IUserDal.cs) <br>
 
-
 🗃 **``Core Layer``** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;📂 ``Aspects`` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📂 ``Autofac`` <br>
@@ -131,5 +130,5 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentalsController.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/WebAPI/Controllers/RentalsController.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [UsersController.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/WebAPI/Controllers/UsersController.cs) <br><br>
 
-## SQL Query
+## 🗃 SQL Query
 &nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentACarSQLQuery.sql](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql)
