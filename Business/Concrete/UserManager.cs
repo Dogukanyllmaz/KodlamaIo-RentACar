@@ -7,6 +7,8 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
 {
@@ -19,13 +21,9 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            if (user.FirstName.Length < 2)
-            {
-                return new ErrorResult(Messages.CustomerNameInvalid);
-            }
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
@@ -47,12 +45,10 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(u => u.UserId == id));
         }
 
+
+        [ValidationAspect(typeof(UserValidator))]
         public IResult Update(User user)
         {
-            if (user.FirstName.Length < 2)
-            {
-                return new ErrorResult(Messages.CustomerNameInvalid);
-            }
             _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
