@@ -8,7 +8,7 @@
 </p>
 
 ## 🎯 About
-- **Entities, DataAccess, Business, ConsoleUI ve WebAPI katmanlarından oluşmaktadır. Hala geliştirme aşamasında.**
+- **SOLID prensiplerine uygun olarak yazılmıştır ve halen geliştirme aşamasındadır...**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
 - **Beğendiyseniz yıldız vermeyi unutmayın lütfen**
 
