@@ -10,260 +10,199 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             UserManager userManager = new UserManager(new EfUserDal());
-            CustomerManager customerManeger = new CustomerManager(new EfCustomerDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-            //GetAllDetail(carManager); // Çalışıyor
-            //TestDelete(carManager);
-            //TestAdd(carManager); //Çalışıyor
-            //TestUpdate(carManager);
+            AddUpdateDeleteOperations(carManager, colorManager, brandManager, userManager, customerManager, rentalManager);
 
-            //TestColorAdd(colorManager); // Çalışıyor
-            //TesstColorDelete(colorManager); 
-            //TestUpdateColor(colorManager); 
-            //TestColorGetAll(colorManager); //Çalışıyor
-
-            //TestRentalAdd(rentalManager); //Çalışıyor
-            //TestRentalGetAll(rentalManager); //Çalışıyor
-            //TestRentalDelete(rentalManager);
-            //TestRentalUpdate(rentalManager);
-
-            //TestCustomerAdd(customerManeger); //Çalışıyor
-            //TestCustomerDelete(customerManeger);
-            //TestCustomerGetAll(customerManeger); //Çalışıyor
-            //TestCustomerUpdate(customerManeger); //Çalışıyor
-
-            //TestUserAdd(userManager); // Çalışıyor
-            //TestGetAllUsers(userManager); // Çalışıyor
-            //TestUserDelete(userManager);
-            //TestUserUpdate(userManager); //Çalışıyor
-
-            
         }
 
-        private static void TestRentalUpdate(RentalManager rentalManager)
+        private static void GetCarDetail(CarManager carManager)
         {
-            var result = rentalManager.Update(new Rental
-            {
-                Id = 1,
-                CarId = 2,
-                CustomerId = 9,
-                RentDate = new DateTime(2021, 2, 5),
-                ReturnDate = new DateTime(2021, 3, 1)
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestRentalDelete(RentalManager rentalManager)
-        {
-            var result = rentalManager.Delete(new Rental
-            {
-                Id = 7
-            });
-            Console.WriteLine(result.Message);
-        }
-        
-        private static void TestRentalGetAll(RentalManager rentalManager)
-        {
-            var result = rentalManager.GetAllRentals();
-            foreach (var rental in rentalManager.GetAllRentals().Data)
-            {
-                Console.WriteLine(rental.CarId);
-            }
-
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestColorGetAll(ColorManager colorManager)
-        {
-            var result = colorManager.GetColors();
-            foreach (var color in colorManager.GetColors().Data)
-            {
-                Console.WriteLine(color.Name);
-            }
-
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestUpdateColor(ColorManager colorManager)
-        {
-            var result = colorManager.Update(new Color
-            {
-                Id = 1006,
-                Name = "Uzay Gri"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestUserUpdate(UserManager userManager)
-        {
-            var result = userManager.Update(new User
-            {
-                UserId = 5,
-                FirstName = "Can",
-                LastName = "Saru",
-                Email = "cs12@gmail.com",
-                Password = "124578"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestCustomerUpdate(CustomerManager customerManeger)
-        {
-            var result = customerManeger.Update(new Customer
-            {
-                Id = 9,
-                UserId = 2,
-                CompanyName = "Lord Palace Hotel"
-            });
-            Console.WriteLine(result.Message);
-        }
-        //Tamamdır
-        private static void TestCustomerGetAll(CustomerManager customerManeger)
-        {
-            var result = customerManeger.GetAllCustomers();
-            foreach (var customer in customerManeger.GetAllCustomers().Data)
-            {
-                Console.WriteLine(customer.CompanyName);
-            }
-        }
-
-        private static void TestCustomerDelete(CustomerManager customerManeger)
-        {
-            var result = customerManeger.Delete(new Customer
-            {
-                Id = 9
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TesstColorDelete(ColorManager colorManager)
-        {
-            var result = colorManager.Delete(new Color
-            {
-                Id = 1010
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestUserDelete(UserManager userManager)
-        {
-            var result = userManager.Delete(new User
-            {
-                UserId = 4
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestGetAllUsers(UserManager userManager)
-        {
-            var result = userManager.GetAllUsers();
-            foreach (var user in userManager.GetAllUsers().Data)
-            {
-                Console.WriteLine(user.FirstName);
-            }
-        }
-
-        private static void TestCustomerAdd(CustomerManager customerManeger)
-        {
-            var result = customerManeger.Add(new Customer
-            {
-                UserId = 2,
-                CompanyName = "Commencis"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestUserAdd(UserManager userManager)
-        {
-            var result = userManager.Add(new User
-            {
-                FirstName = "İldem",
-                LastName = "Koceli",
-                Email = "12345@hotmail.com",
-                Password = "12345"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static IResult TestRentalAdd(RentalManager rentalManager)
-        {
-            var result = rentalManager.Add(new Rental
-            {
-                CarId = 3,
-                CustomerId = 5,
-                RentDate = new DateTime(2021, 2, 12),
-                ReturnDate = new DateTime(2021, 2, 25)
-            });
-            Console.WriteLine(result.Message);
-            return result;
-        }
-
-        private static void TestColorAdd(ColorManager colorManager)
-        {
-            var result = colorManager.Add(new Color
-            {
-                Name = "Mat Siyah"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestUpdate(CarManager carManager)
-        {
-            var result = carManager.Update(new Car
-            {
-                Id = 4,
-                BrandId = 6,
-                ColorId = 1007,
-                Description = "1.6 Benzin"
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void TestAdd(CarManager carManager)
-        {
-            var result = carManager.Add(new Car
-            {
-                Name = "Clio",
-                BrandId = 6,
-                ColorId = 1007,
-                ModelYear = 2018,
-                DailyPrice = 225,
-                Description = "1.6 Dizel",
-            });
-            Console.WriteLine(result.Message);
-            GetAllDetail(carManager);
-        }
-
-        private static void TestDelete(CarManager carManager)
-        {
-            var result = carManager.Delete(new Car
-            {
-                Id = 3
-            });
-            Console.WriteLine(result.Message);
-        }
-
-        private static void GetAllDetail(CarManager carManager)
-        {
-
-            Console.WriteLine("Car Id\tCar Name\t\tBrand Name\tColor Name\tDaily Price");
-
             var result = carManager.GetCarDetails();
 
-            foreach (var car in carManager.GetCarDetails().Data)
+            if (result.Success == true)
             {
-                Console.WriteLine(
-                    $"{car.Id}\t{car.Name}\t{car.BrandName}\t{car.ColorName}\t{car.DailyPrice}");
+                Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-15} | {3,-15} | {4,-13} | {5,-13} | {6,-15} ", "CarId",
+                    "CarName", "BrandName", "ColorName", "ModelYear", "DailyPrice", "Description"));
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} ",
+                        car.Id, car.Name, car.BrandName, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
 
-            Console.WriteLine("\n");
-            Console.WriteLine(result.Message);
+        private static void AddUpdateDeleteOperations(CarManager carManager, ColorManager colorManager, BrandManager brandManager, UserManager userManager, CustomerManager customerManager, RentalManager rentalManager)
+        {
+            Console.WriteLine(" 1- Car - Add New\n 2- Car - Update\n 3- Car - Delete(its not working)\n 4- Brand - Add New\n 5- Color - Add New\n 6- User - Add New\n 7- Customer - Add New\n 8- Rent A Car\n 9- Update Rented Car\n 10- Delete Rented Car");
+            Console.WriteLine("-----------------------------------------------------------------");
+            var choice1 = Convert.ToInt32(Console.ReadLine());
+            //string choiceString = "";
+            switch (choice1)
+            {
+                case 1:     //AddNewCar-------------------ITS WORKING
+                    AddCar();
+                    break;
+                case 2:     //UpdateCar-------------------ITS WORKING
+                    GetCarDetail(carManager);
+                    UpdateCar(carManager);
+                    break;
+                case 3:     //AddNewBrand-------------------ITS WORKING
+                    AddBrand(brandManager);
+                    break;
+                case 4:     //AddNewColor-------------------ITS WORKING
+                    AddColor(colorManager);
+                    break;
+                case 5:     //AddNewUser-------------------ITS WORKING
+                    AddUser(userManager);
+                    break;
+                case 6:     //AddNewCustomer-------------------ITS WORKING
+                    AddCustomer(customerManager);
+                    break;
+                case 7:     //RentACar-------------------ITS WORKING
+                    RentaCar(rentalManager);
+                    break;
+                case 8:     //UpdateRentedCar-------------------ITS WORKING
+                    ReturnCar(rentalManager);
+                    break;
+                case 9:     //DeleteRentedCar-------------------ITS WORKING
+                    DeleteRental(rentalManager);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        //-------------------------- Add-Delete-Update----------------------------------
+        private static void DeleteRental(RentalManager rentalManager)
+        {
+            Console.WriteLine("Write Rental ID For Delete");
+            int deleteRent = Convert.ToInt32(Console.ReadLine());
+            rentalManager.Delete(rentalManager.GetRentalById(deleteRent).Data);
+        }
+
+        private static void ReturnCar(RentalManager rentalManager)
+        {
+            Console.WriteLine("Returned Car ID : ");
+            int updateRentID = Convert.ToInt32(Console.ReadLine());
+            Rental returnedCar = new Rental {CarId = updateRentID, ReturnDate = DateTime.Now};
+            rentalManager.Update(returnedCar);
+        }
+
+        private static void RentaCar(RentalManager rentalManager)
+        {
+            Rental rental = new Rental();
+            Console.WriteLine("Car ID : ");
+            rental.CarId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Customer ID : ");
+            rental.CustomerId = Convert.ToInt32(Console.ReadLine());
+            rental.RentDate = DateTime.Now;
+            rental.ReturnDate = null;
+            Console.WriteLine(rentalManager.Add(rental).Message);
+        }
+
+        private static void AddCustomer(CustomerManager customerManager)
+        {
+            Customer customer1 = new Customer();
+            Console.WriteLine("User ID : ");
+            customer1.UserId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Company Name : ");
+            customer1.CompanyName = Console.ReadLine();
+            customerManager.Add(customer1);
+        }
+
+        private static void AddUser(UserManager userManager)
+        {
+            User user1 = new User();
+            Console.WriteLine("First Name : ");
+            user1.FirstName = Console.ReadLine();
+            Console.WriteLine("Last Name : ");
+            user1.LastName = Console.ReadLine();
+            Console.WriteLine("E-mail : ");
+            user1.Email = Console.ReadLine();
+            Console.WriteLine("Password : ");
+            user1.Password = Console.ReadLine();
+            userManager.Add(user1);
+        }
+
+        private static void AddColor(ColorManager colorManager)
+        {
+            Color color1 = new Color();
+            Console.WriteLine("Color Name: ");
+            color1.Name = Console.ReadLine();
+            colorManager.Add(color1);
+        }
+
+        private static void AddBrand(BrandManager brandManager)
+        {
+            Brand brand1 = new Brand();
+            Console.WriteLine("Brand Name: ");
+            brand1.Name = Console.ReadLine();
+            brandManager.Add(brand1);
+        }
+
+        //private static void DeleteCar(CarManager carManager)
+        //{
+        //    Console.WriteLine("--Delete--");
+        //    Console.WriteLine("Car ID: ");
+        //    int deleteCar = Convert.ToInt32(Console.ReadLine());
+        //    carManager.Delete();
+        //}
+
+        private static void UpdateCar(CarManager carManager)
+        {
+            Console.WriteLine("--Add--");
+            Console.WriteLine("Car Id: ");
+            int updateCarId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Car Name: ");
+            string updateCarName = Console.ReadLine();
+            Console.WriteLine("Brand Id: ");
+            int updateBrandId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Color Id: ");
+            int updateColorId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Daily Price: ");
+            decimal updateDailyPrice = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Model Year: ");
+            int updateModelYear = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Description: ");
+            string updateDescription = Console.ReadLine();
+
+            Car updateCar = new Car
+            {
+                Id = updateCarId, BrandId = updateBrandId, Name = updateCarName, ColorId = updateColorId,
+                DailyPrice = updateDailyPrice, Description = updateDescription, ModelYear = updateModelYear
+            };
+            carManager.Update(updateCar);
+        }
+
+        private static void AddCar()
+        {
+            Car newcar = new Car();
+
+            Console.WriteLine("Car Name: ");
+            newcar.Name = Console.ReadLine();
+            Console.WriteLine("BrandId: ");
+            newcar.BrandId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ColorId :");
+            newcar.ColorId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Daily Price: ");
+            newcar.DailyPrice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Model Year: ");
+            newcar.ModelYear = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Description: ");
+            newcar.Description = Console.ReadLine();
+
+            Console.WriteLine(newcar.Name + "added");
         }
     }
 }
