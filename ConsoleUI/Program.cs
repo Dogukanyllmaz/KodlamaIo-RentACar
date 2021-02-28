@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using Core.Utilities.Results.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -131,8 +132,8 @@ namespace ConsoleUI
             Console.WriteLine("E-mail : ");
             user1.Email = Console.ReadLine();
             Console.WriteLine("Password : ");
-            user1.Password = Console.ReadLine();
-            userManager.Add(user1);
+            //user1.Password = Console.ReadLine();
+            //userManager.Add(user1);
         }
 
         private static void AddColor(ColorManager colorManager)

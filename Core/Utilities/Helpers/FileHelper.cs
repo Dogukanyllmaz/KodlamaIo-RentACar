@@ -11,7 +11,7 @@ namespace Core.Utilities.Helpers
         public static string Add(IFormFile file)
         {
             var sourcepath = Path.GetTempFileName();
-            if (file.Length > 0)
+            if (file.Length == 0)
             {
                 using (var stream = new FileStream(sourcepath, FileMode.Create))
                 {
