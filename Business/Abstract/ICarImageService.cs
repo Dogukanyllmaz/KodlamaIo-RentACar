@@ -7,6 +7,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
+    //Add imageservice
     public interface ICarImageService
     {
         IResult Add(CarImage carImage);
