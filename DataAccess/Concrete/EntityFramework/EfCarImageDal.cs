@@ -1,14 +1,13 @@
-﻿using Entities.Concrete;
+﻿using Core.DataAccess.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
+using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarImageDal : EfEntityRepositoryBase<CarImage, RentalProjectContext> , ICarImageDal
+    public class EfCarImageDal : EfEntityRepositoryBase<CarImage, RentalProjectContext>, ICarImageDal
     {
-
     }
 }
