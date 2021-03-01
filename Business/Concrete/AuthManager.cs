@@ -14,8 +14,8 @@ namespace Business.Concrete
 {
     public class AuthManager : IAuthService
     {
-        private readonly IUserService _userService;
-        private readonly ITokenHelper _tokenHelper;
+        IUserService _userService;
+        ITokenHelper _tokenHelper;
 
         public AuthManager(IUserService userService, ITokenHelper tokenHelper)
         {
@@ -28,25 +28,28 @@ namespace Business.Concrete
             var claims = _userService.GetClaims(user);
             var accessToken = _tokenHelper.CreateToken(user, claims.Data);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.User_Token_Created);
+
         }
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByEmail(userForLoginDto.Email);
-            if (userToCheck.Data == null)
+            var userToCheck = _userService.GetByMail(userForLoginDto.Email);
+            if (userToCheck == null)
             {
                 return new ErrorDataResult<User>(Messages.User_Not_Found);
             }
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
-                return new ErrorDataResult<User>(Messages.User_Password_Doesnt_Match);
+                return new ErrorDataResult<User>(Messages.PasswordError);
             }
-            return new SuccessDataResult<User>(userToCheck.Data, Messages.SuccessfulLogin);
+            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
         }
 
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
+        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
-            HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
+
             var user = new User
             {
                 Email = userForRegisterDto.Email,
@@ -62,7 +65,7 @@ namespace Business.Concrete
 
         public IResult UserExists(string email)
         {
-            if (_userService.GetByEmail(email).Data != null)
+            if (_userService.GetByMail(email) != null)
             {
                 return new ErrorResult(Messages.User_Already_Exist);
             }

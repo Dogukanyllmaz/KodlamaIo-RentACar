@@ -15,74 +15,38 @@ namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        private readonly IUserDal _userDal;
-
+        IUserDal _userdal;
         public UserManager(IUserDal userDal)
         {
-            _userDal = userDal;
+            _userdal = userDal;
         }
-
-        [ValidationAspect(typeof(UserValidator))]
-        public IResult Add(User entity)
+        [ValidationAspect(typeof(UserValidator))] //Validasyon işlemi
+        public IResult Add(User user)
         {
-            _userDal.Add(entity);
+            _userdal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
 
-        public IResult Delete(User entity)
+        public IResult Delete(User user)
         {
-            _userDal.Delete(entity);
+            _userdal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
         }
 
-        public IDataResult<User> Get(int id)
+        public User GetByMail(string email)
         {
-            User user = _userDal.Get(p => p.Id == id);
-            if (user == null)
-            {
-                return new ErrorDataResult<User>(Messages.GetErrorUserMessage);
-            }
-            else
-            {
-                return new SuccessDataResult<User>(user, Messages.GetSuccessUserMessage);
-            }
-        }
-
-        public IDataResult<List<User>> GetAll()
-        {
-            List<User> users = _userDal.GetAll();
-            if (users.Count == 0)
-            {
-                return new ErrorDataResult<List<User>>(Messages.UserListed);
-            }
-            else
-            {
-                return new SuccessDataResult<List<User>>(users, Messages.UserListed);
-            }
-        }
-
-        public IDataResult<User> GetByEmail(string email)
-        {
-            User user = _userDal.Get(p => p.Email.ToLower() == email.ToLower());
-            if (user == null)
-            {
-                return new ErrorDataResult<User>(Messages.GetErrorUserMessage);
-            }
-            else
-            {
-                return new SuccessDataResult<User>(user, Messages.GetSuccessUserMessage);
-            }
+            return _userdal.Get(m => m.Email == email); //GetById ismine takılma
+            // IEntityRepository de GetById olarak yazmışım. Ama illaki id'ye göre sorgulama yapmama gerek yok :)
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+            return new SuccessDataResult<List<OperationClaim>>(_userdal.GetClaims(user), Messages.UserListed);
         }
 
-        [ValidationAspect(typeof(UserValidator))]
-        public IResult Update(User entity)
+        public IResult Update(User user)
         {
-            _userDal.Update(entity);
+            _userdal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
     }

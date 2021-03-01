@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
+        IAuthService _authService;
 
         public AuthController(IAuthService authService)
         {
@@ -21,36 +21,37 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("login")]
-        public IActionResult Login(UserForLoginDto userForLoginDto)
+        public ActionResult Login(UserForLoginDto userForLoginDto)
         {
             var userToLogin = _authService.Login(userForLoginDto);
             if (!userToLogin.Success)
             {
-                return BadRequest(userToLogin);
+                return BadRequest(userToLogin.Message);
             }
-
             var result = _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data);
+
             }
-            return BadRequest(result);
+            return BadRequest(result.Message);
         }
 
         [HttpPost("register")]
-        public IActionResult Register(UserForRegisterDto userForRegisterDto)
+        public ActionResult Register(UserForRegisterDto userForRegisterDto)
         {
-            var userExists = _authService.UserExists(userForRegisterDto.Email);
-            if (!userExists.Success)
+            var userToExists = _authService.UserExists(userForRegisterDto.Email);
+            if (!userToExists.Success)
             {
-                return BadRequest(userExists);
+                return BadRequest(userToExists.Message);
             }
-            var registerResult = _authService.Register(userForRegisterDto);
-            if (registerResult.Success)
+            var resultRegister = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
+            var result = _authService.CreateAccessToken(resultRegister.Data);
+            if (result.Success)
             {
-                return Ok(registerResult);
+                return Ok(result.Data);
             }
-            return BadRequest(registerResult);
+            return BadRequest(result.Message);
         }
     }
 }

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Concrete;
+using Core.Utilities.FileManagements;
+using System.IO;
 
 namespace WebAPI.Controllers
 {
@@ -13,79 +15,90 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CarImagesController : ControllerBase
     {
+
         ICarImageService _carImageService;
 
         public CarImagesController(ICarImageService carImageService)
         {
+
             _carImageService = carImageService;
         }
 
+        [HttpGet]
+        public IActionResult GetAllById(int carId)
+        {
+            var result = _carImageService.GetAll(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
-        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
+        public IActionResult Add(IFormFile imageFile, int carId)
         {
-            var result = _carImageService.Add(file, carImage);
+
+            if (!FileManagament.CheckImageFile(imageFile))
+            {
+                return BadRequest(new { Message = "Resim dosya formatı hatalı!" });
+            }
+            string newImageName = Guid.NewGuid() + Path.GetExtension(imageFile.FileName);
+            var result = _carImageService.Add(new CarImage { CarId = carId, ImagePath = newImageName });
             if (result.Success)
             {
+                FileManagament.AddImageFile(imageFile, @"wwwroot\uploads", newImageName);
                 return Ok(result);
             }
             return BadRequest(result);
+
         }
 
-        [HttpDelete("delete")]
-        public IActionResult Delete([FromForm(Name = ("Id"))] int Id)
-        {
-
-            var carImage = _carImageService.Get(Id).Data;
-
-            var result = _carImageService.Delete(carImage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
 
         [HttpPut("update")]
-        public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm(Name = ("Id"))] int Id)
+        public IActionResult Update(IFormFile imageFile, int carId, int carImageId)
         {
-            var carImage = _carImageService.Get(Id).Data;
-            var result = _carImageService.Update(file, carImage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
-        {
-            var result = _carImageService.Get(id);
-            if (result.Success)
+            if (!FileManagament.CheckImageFile(imageFile))
             {
-                return Ok(result);
+                return BadRequest(new { Message = "Resim dosya formatı hatalı!" });
             }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getall")]
-        public IActionResult GetAll()
-        {
-            var result = _carImageService.GetAll();
-            if (result.Success)
+            else
             {
-                return Ok(result);
+                var image = _carImageService.GetAll(carId).Data.Where(x => x.Id == carImageId).FirstOrDefault();
+                string fileName = image.ImagePath;
+
+
+
+                var result = _carImageService.Update(new CarImage
+                {
+                    Id = carImageId,
+                    CarId = carId,
+                    ImagePath = fileName
+                });
+                if (result.Success)
+                {
+                    FileManagament.AddImageFile(imageFile, @"wwwroot\uploads", fileName);
+                    System.IO.File.Delete(fileName);
+                    return Ok(result);
+                }
+                return BadRequest(result);
+
             }
-            return BadRequest(result);
         }
-
-        [HttpGet("getimagesbycarid")]
-        public IActionResult GetImagesById(int id)
+        [HttpDelete("delete")]
+        public IActionResult Delete(int carImageId)
         {
-            var result = _carImageService.GetImagesByCarId(id);
+            var result = _carImageService.GetById(carImageId);
             if (result.Success)
             {
-                return Ok(result);
+                FileManagament.DeleteImageFile(@"wwwroot\uploads\", result.Data.ImagePath);
+                var deleteImage = _carImageService.Delete(new CarImage { Id = carImageId });
+                if (deleteImage.Success)
+                {
+                    return Ok(deleteImage);
+                }
             }
             return BadRequest(result);
         }

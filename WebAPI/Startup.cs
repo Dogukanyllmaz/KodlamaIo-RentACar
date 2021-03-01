@@ -36,8 +36,8 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -53,6 +53,7 @@ namespace WebAPI
                         IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                     };
                 });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             ServiceTool.Create(services);
         }
 
