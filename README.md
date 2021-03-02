@@ -10,7 +10,7 @@
 ## 🎯 About
 - **SOLID prensiplerine uygun olarak yazılmıştır ve hala geliştirme aşamasındadır...**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
-- **Beğendiyseniz yıldız vermeyi unutmayın lütfen...**
+- **Beğendiyseniz yıldız vermeyi unutmayın lütfen...⭐⭐⭐**
 
 ## Latest Updates
 - Sistemdeki araçlara artık görsel eklenebiliyor.
