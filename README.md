@@ -236,13 +236,50 @@ ReturnDate | datetime
 
 Variable Name | Data Type
 ------------ | -------------
-UserId | int
+Id | int
 FirstName | nvarchar(50)
 LastName | nvarchar(50)
 Email | nvarchar(50)
-Password | nvarchar(50)
+PasswordHash | binary(500)
+PasswordSalt | binary(500)
+Status | bit
 
    </td>
+  <tr>
+    <td>CarImages</td>
+     <td>OperationClaims</td>
+     <td>UserOperationClaims</td>
+  </tr>
+  <tr>
+  <td>
+  
+  Variable Name | Data Type
+------------ | -------------
+Id | int
+CarId | int
+ImagePath | nvarchar(500)
+Date | datetime
+  
+  </td>
+  <td>
+  
+  Variable Name | Data Type
+------------ | -------------
+Id | int
+Name | nvarchar(100)
+  
+  </td>
+  <td>
+  
+  Variable Name | Data Type
+------------ | -------------
+Id | int
+UserId | int
+OperationClaimId | int
+  
+  </td>
+  
+  </tr>
   </tr>
  </table>
 
