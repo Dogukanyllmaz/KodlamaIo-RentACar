@@ -27,13 +27,17 @@ CREATE TABLE [dbo].[Brands] (
 
 
 CREATE TABLE [dbo].[Users] (
-    [UserId]    INT           IDENTITY (1, 1) NOT NULL,
-    [FirstName] NVARCHAR (50) NULL,
-    [LastName]  NVARCHAR (50) NULL,
-    [Email]     NVARCHAR (50) NULL,
-    [Password]  NVARCHAR (50) NULL,
-    CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([UserId] ASC)
+    [Id]           INT           IDENTITY (1, 1) NOT NULL,
+    [FirstName]    NVARCHAR (50) NULL,
+    [LastName]     NVARCHAR (50) NULL,
+    [Email]        NVARCHAR (50) NULL,
+    [PasswordHash] BINARY (500)  NULL,
+    [PasswordSalt] BINARY (500)  NULL,
+    [Status]       BIT           NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
+
 
 
 CREATE TABLE [dbo].[Customers] (
@@ -55,5 +59,28 @@ CREATE TABLE [dbo].[Rentals] (
     CONSTRAINT [CarsFk] FOREIGN KEY ([CarId]) REFERENCES [dbo].[Cars] ([Id]),
     CONSTRAINT [CustomerFk] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customers] ([Id])
 );
+
+CREATE TABLE [dbo].[UserOperationClaims] (
+    [Id]               INT IDENTITY (1, 1) NOT NULL,
+    [UserId]           INT NOT NULL,
+    [OperationClaimId] INT NOT NULL,
+    CONSTRAINT [PK_UserOperationClaims] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[OperationClaims] (
+    [Id]   INT           IDENTITY (1, 1) NOT NULL,
+    [Name] VARCHAR (100) NOT NULL,
+    CONSTRAINT [PK_OperationClaims] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[CarImages] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [CarId]     INT            NOT NULL,
+    [ImagePath] NVARCHAR (500) NOT NULL,
+    [Date]      DATETIME       NOT NULL,
+    CONSTRAINT [PK_CarImages] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [CarId_FK] FOREIGN KEY ([CarId]) REFERENCES [dbo].[Cars] ([Id])
+);
+
 
 
