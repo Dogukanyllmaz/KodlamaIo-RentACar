@@ -8,16 +8,15 @@
 </p>
 
 ## 🎯 About
-- **SOLID prensiplerine uygun olarak yazılmıştır ve halen geliştirme aşamasındadır...**
+- **SOLID prensiplerine uygun olarak yazılmıştır ve hala geliştirme aşamasındadır...**
 - **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
-- **Beğendiyseniz yıldız vermeyi unutmayın lütfen**
+- **Beğendiyseniz yıldız vermeyi unutmayın lütfen...**
 
 ## Latest Updates
-- Autofac, Autofac.Extensions.DependencyInjection, Autofac.Extras.DynamicProxy projeye eklendi.
-- AOP ve IoC yapıları kullanılmaya başlandı.
-- FluentValidation eklendi.
-- Business katmanı güncellendi. Artık koşul döngüleri yerine attributelar var.
-- Kodlar Autofac'e uygun hale getirildi.
+- Sistemdeki araçlara artık görsel eklenebiliyor.
+- Business rules yazılıp kullanılmaya başlandı.
+- SecuredOptions eklendi.
+- Jwt entegre edildi.
 
 ## Table of Contents
 - [About](#about)
