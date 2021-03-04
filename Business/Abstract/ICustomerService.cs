@@ -13,5 +13,6 @@ namespace Business.Abstract
         IResult Update(Customer customer);
         IDataResult<List<Customer>> GetAllCustomers();
         IDataResult<Customer> GetCustomerById(int id);
+        IResult AddTransactionalTest(Customer customer);
     }
 }

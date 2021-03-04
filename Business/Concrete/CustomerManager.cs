@@ -7,7 +7,10 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Business.BusinessAspects;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
@@ -21,7 +24,8 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
-        
+        [SecuredOperation("customer.add,admin")]
+        [CacheRemoveAspect("ICustomerService.Get")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
@@ -29,17 +33,32 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CustomerAdded);
         }
 
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Customer customer)
+        {
+            Add(customer);
+            if (customer.UserId < 0)
+            {
+                throw new Exception("User Id is not lower than 0");
+            }
+            Add(customer);
+            return null;
+        }
+
+        [SecuredOperation("customer.delete, admin")]
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<List<Customer>> GetAllCustomers()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.ColorListed);
         }
 
+        [CacheAspect]
         public IDataResult<Customer> GetCustomerById(int id)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
@@ -47,6 +66,8 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(CustomerValidator))]
+        [SecuredOperation("customer.update,admin")]
+        [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);

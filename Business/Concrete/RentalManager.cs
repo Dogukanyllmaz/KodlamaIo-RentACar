@@ -7,7 +7,10 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Business.BusinessAspects;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
@@ -21,6 +24,8 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        [CacheRemoveAspect("IRentalService.Get")]
+        [SecuredOperation("rental.add,admin")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
@@ -29,23 +34,39 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarAdded);
         }
 
+        [TransactionScopeAspect]
+        public IResult AddTransactionalTest(Rental rental)
+        {
+            Add(rental);
+            if (rental.CarId < 0)
+            {
+                throw new Exception("Car Id is not lower than 0");
+            }
+            Add(rental);
+            return null;
+        }
+
+        [SecuredOperation("rental.delete,admin")]
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
             return new SuccessResult(Messages.CarDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAllRentals()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.CarListed);
         }
 
+        [CacheAspect]
         public IDataResult<Rental> GetRentalById(int id)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id));
         }
 
-
+        [SecuredOperation("rental.update,admin")]
+        [CacheRemoveAspect("IRentalService.Get")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Text;
 using Business.BusinessAspects;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 
 namespace Business.Concrete
@@ -24,18 +25,22 @@ namespace Business.Concrete
         
         [ValidationAspect(typeof(BrandValidator))]
         [SecuredOperation("brand.add,admin")]
+        [CacheRemoveAspect("IBrandService.Get")]
+
         public IResult Add(Brand brand)
         {
             _brandDal.Add(brand);
             return new SuccessResult(Messages.BrandAdded);
         }
 
+        [SecuredOperation("brand.deletee, admin")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.BrandDeleted);
         }
 
+        [CacheAspect]
         public IDataResult<List<Brand>> GetBrands()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
@@ -48,6 +53,8 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(BrandValidator))]
+        [CacheRemoveAspect("IBrandService.Get")]
+        [SecuredOperation("brand.update,admin")]
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);
