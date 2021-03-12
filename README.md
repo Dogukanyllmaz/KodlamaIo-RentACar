@@ -13,10 +13,8 @@
 - **Beğendiyseniz yıldız vermeyi unutmayın lütfen...⭐⭐⭐**
 
 ## Latest Updates
-- Sistemdeki araçlara artık görsel eklenebiliyor.
-- Business rules yazılıp kullanılmaya başlandı.
-- SecuredOptions eklendi.
 - Jwt entegre edildi.
+- CacheAspect, TransactionScopeAspect ve PerformanceAspect eklendi.
 
 ## Table of Contents
 - [About](#about)
