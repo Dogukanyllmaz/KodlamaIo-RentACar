@@ -12,6 +12,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -55,13 +56,18 @@ namespace Business.Concrete
         [CacheAspect]
         public IDataResult<List<Customer>> GetAllCustomers()
         {
-            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.ColorListed);
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(), Messages.CustomerListed);
         }
 
         [CacheAspect]
         public IDataResult<Customer> GetCustomerById(int id)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
+        }
+
+        public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
+        {
+            return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails());
         }
 
 
