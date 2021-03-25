@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.CrossCuttingCorners.Validation
+namespace Core.CrossCuttingConcerns.Validation
 {
     public class ValidationTool
     {
@@ -16,5 +16,7 @@ namespace Core.CrossCuttingCorners.Validation
                 throw new ValidationException(result.Errors);
             }
         }
+
+
     }
 }

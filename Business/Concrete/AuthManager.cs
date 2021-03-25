@@ -4,10 +4,10 @@ using System.Text;
 using Business.Abstract;
 using Business.Constants;
 using Core.Entities.Concrete;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.Jwt;
+using Core.Utilities.Security.JWT;
 using Entities.DTOs;
 
 namespace Business.Concrete

@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -13,6 +12,7 @@ using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Entities.DTOs;
+using Core.Utilities.Business;
 
 namespace Business.Concrete
 {
@@ -30,7 +30,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            var result = _rentalDal.Get(p => p.CarId == rental.CarId);
+            var result = BusinessRules.Run(CheckCarAvailable(rental.CarId));
+            if (result != null)
+            {
+                return result;
+            }
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.CarAdded);
         }
@@ -79,5 +83,15 @@ namespace Business.Concrete
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.CarUpdated);
         }
+
+        private IResult CheckCarAvailable(int carId)
+        {
+            if (_rentalDal.Get(r => r.CarId == carId && r.ReturnDate == null) != null)
+            {
+                return new ErrorResult();
+            }
+            return new SuccessResult();
+        }
+
     }
 }

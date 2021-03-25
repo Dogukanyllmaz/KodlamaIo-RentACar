@@ -23,7 +23,6 @@ namespace DataAccess.Concrete.EntityFramework
                         FirstName = u.FirstName,
                         LastName = u.LastName,
                         Email = u.Email,
-                        Status = u.Status,
                         CompanyName = c.CompanyName
                     };
 

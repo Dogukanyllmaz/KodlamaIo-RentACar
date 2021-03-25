@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Core.CrossCuttingCorners.Caching
+namespace Core.CrossCuttingConcerns.Caching
 {
     public interface ICacheManager
     {
         T Get<T>(string key);
-        object Get(string key);
+        object Get(string key); // Generic olmayan versiyon (Yoğurt y.)
         void Add(string key, object value, int duration);
         bool IsAdd(string key);
         void Remove(string key);

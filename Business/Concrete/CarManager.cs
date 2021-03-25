@@ -2,8 +2,6 @@
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
-using Core.Utilities.Results.Abstract;
-using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -13,6 +11,7 @@ using System.Text;
 using Business.BusinessAspects;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transaction;
+using Core.Utilities.Results;
 
 namespace Business.Concrete
 {

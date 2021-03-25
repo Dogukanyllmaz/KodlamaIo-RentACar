@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Castle.DynamicProxy;
-using Core.CrossCuttingCorners.Caching;
+using Core.CrossCuttingConcerns.Caching;
 using Core.Utilities.Interceptors;
 using Core.Utilities.IoC;
 using Microsoft.Extensions.DependencyInjection;
