@@ -34,7 +34,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (3.1.11)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore.SqlServer (3.1.11)` <br>
 
-**Core**
+**Core** <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (5.0.4)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Castle.Core (4.4.1)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `FluentValidation (9.5.1)` <br>
@@ -44,7 +44,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `System.IdentityModel.Tokens.Jwt (6.9.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Newtonsoft.Json(13.0.1)` <br>
 
-**Business**
+**Business** <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac (6.1.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extensions.DependencyInjection (7.1.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extras.DynamicProxy (6.0.0)` <br>
