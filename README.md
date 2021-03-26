@@ -21,7 +21,7 @@
 - [Latest Updates](#latest-updates)
 - [Installation](#installation)
 - [Layers](#layers)
-- [SQL Query](#sql-query)
+- [SQL Query](#tables-in-database)
 - [Tables in Database](#tables-in-database)
 
 
