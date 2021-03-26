@@ -23,7 +23,7 @@
 - [About](#about)
 - [Latest Updates](#latest-updates)
 - [Installation](#installation)
-- [Layers](#layers)
+- [Screenshots](#screenshots)
 - [SQL Query](https://github.com/Dogukanyllmaz/RentaCarProject/blob/master/RentaCarSQLQuery.sql)
 - [Tables in Database](#tables-in-database)
 
