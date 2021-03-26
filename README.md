@@ -8,13 +8,15 @@
 </p>
 
 ## 🎯 About
-- **SOLID prensiplerine uygun olarak yazılmıştır ve hala geliştirme aşamasındadır...**
-- **[Sql query](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql) <--- göz atmak isteyenler.**
-- **Beğendiyseniz yıldız vermeyi unutmayın lütfen...⭐⭐⭐**
+
+-It is written in accordance with SOLID principles. It is designed in the form of a multi-tier enterprise architecture, consisting of Entities, DataAccess, Business, Core and WebAPI layers. Jwt (Login and Register) and Middleware (error detection) are integrated into the system.
 
 ## Latest Updates
-- Jwt entegre edildi.
-- CacheAspect, TransactionScopeAspect ve PerformanceAspect eklendi.
+- Jwt is integrated into the system.
+- CacheAspect, TransactionScopeAspect ve PerformanceAspect are integrated into the system.
+- ExceptionMiddleware and Middleware integrated into the system.
+- Controllers are done.
+- Dto's are done.
 
 ## Table of Contents
 - [About](#about)
