@@ -27,22 +27,30 @@
 - [SQL Query](https://github.com/Dogukanyllmaz/RentaCarProject/blob/master/RentaCarSQLQuery.sql)
 - [Tables in Database](#tables-in-database)
 
+---
 
-## Installation
-Aşağıdaki paketler NuGet aracığıyla **DataAccess** katmanına eklenmelidir. <br>
+#### Installation
+**DataAccess** <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (3.1.11)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore.SqlServer (3.1.11)` <br>
 
-Aşağıdaki paket NuGet aracığıyla **Core** katmanına eklenmelidir. <br>
-&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore.SqlServer (3.1.11)` <br>
+**Core**
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.EntityFrameworkCore (5.0.4)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Castle.Core (4.4.1)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `FluentValidation (9.5.1)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.Extensions.Configuration.Abstractions (5.0.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.AspNetCore.Authentication.JwtBearer (5.0.4)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Microsoft.IdentityModel.Tokens (6.9.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `System.IdentityModel.Tokens.Jwt (6.9.0)` <br>
+&nbsp;&nbsp;&nbsp;&nbsp; 📦 `Newtonsoft.Json(13.0.1)` <br>
 
-Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. <br>
+**Business**
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac (6.1.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extensions.DependencyInjection (7.1.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `Autofac.Extras.DynamicProxy (6.0.0)` <br>
 &nbsp;&nbsp;&nbsp;&nbsp; 📦 `FluentValidation (9.5.1)` <br>
+
+---
 
 ## Layers
 🗃 **``Entities Layer``** <br>
@@ -162,8 +170,13 @@ Aşağıdaki paketler NuGet aracığıyla **Business** katmanına eklenmelidir. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentalsController.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/WebAPI/Controllers/RentalsController.cs) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 📃 [UsersController.cs](https://github.com/Dogukanyllmaz/RentalProject/blob/master/WebAPI/Controllers/UsersController.cs) <br><br>
 
+---
+
+
 ## 🗃 SQL Query
 &nbsp;&nbsp;&nbsp;&nbsp; 📃 [RentACarSQLQuery.sql](https://github.com/Dogukanyllmaz/RentalProject/blob/master/RentaCarSQLQuery.sql)<br>
+
+---
 
 ## Tables in Database
 <table>
