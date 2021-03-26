@@ -21,7 +21,7 @@
 - [Latest Updates](#latest-updates)
 - [Installation](#installation)
 - [Layers](#layers)
-- [SQL Query](#tables-in-database)
+- [SQL Query](https://github.com/Dogukanyllmaz/RentaCarProject/blob/master/RentaCarSQLQuery.sql)
 - [Tables in Database](#tables-in-database)
 
 
