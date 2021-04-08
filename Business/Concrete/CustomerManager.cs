@@ -24,7 +24,7 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
-        [SecuredOperation("customer.add,admin")]
+        [SecuredOperation("user")]
         [CacheRemoveAspect("ICustomerService.Get")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
@@ -45,7 +45,7 @@ namespace Business.Concrete
             return null;
         }
 
-        [SecuredOperation("customer.delete, admin")]
+        [SecuredOperation("user")]
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
@@ -71,7 +71,7 @@ namespace Business.Concrete
 
 
         [ValidationAspect(typeof(CustomerValidator))]
-        [SecuredOperation("customer.update,admin")]
+        [SecuredOperation("user")]
         [CacheRemoveAspect("ICustomerService.Get")]
         public IResult Update(Customer customer)
         {

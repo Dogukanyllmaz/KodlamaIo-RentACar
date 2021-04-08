@@ -54,6 +54,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear = car.ModelYear,
                                  Description = car.Description,
                                  DailyPrice = car.DailyPrice,
+                                 ImagePath = (from im in context.CarImages where im.CarId == car.Id select im.ImagePath).FirstOrDefault(),
                                  Status = !context.Rentals.Any(r => r.CarId == car.Id && r.ReturnDate == null)
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();

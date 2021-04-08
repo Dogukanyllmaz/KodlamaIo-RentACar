@@ -22,25 +22,25 @@ namespace ConsoleUI
 
         }
 
-        private static void GetCarDetail(CarManager carManager)
-        {
-            var result = carManager.GetCarDetails();
+        //private static void GetCarDetail(CarManager carManager)
+        //{
+        //    var result = carManager.GetCarDetails();
 
-            if (result.Success == true)
-            {
-                Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-15} | {3,-15} | {4,-13} | {5,-13} | {6,-15} ", "CarId",
-                    "CarName", "BrandName", "ColorName", "ModelYear", "DailyPrice", "Description"));
-                foreach (var car in result.Data)
-                {
-                    Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} ",
-                        car.Id, car.Name, car.BrandName, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
-        }
+        //    if (result.Success == true)
+        //    {
+        //        Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-15} | {3,-15} | {4,-13} | {5,-13} | {6,-15} ", "CarId",
+        //            "CarName", "BrandName", "ColorName", "ModelYear", "DailyPrice", "Description"));
+        //        foreach (var car in result.Data)
+        //        {
+        //            Console.WriteLine(String.Format("{0,-12} | {1,-12} | {2,-13} | {3,-13} | {4,-13} | {5,-13} | {6,-15} ",
+        //                car.Id, car.Name, car.BrandName, car.ColorName, car.ModelYear, car.DailyPrice, car.Description));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //}
 
         private static void AddUpdateDeleteOperations(CarManager carManager, ColorManager colorManager, BrandManager brandManager, UserManager userManager, CustomerManager customerManager, RentalManager rentalManager)
         {
@@ -54,7 +54,7 @@ namespace ConsoleUI
                     AddCar();
                     break;
                 case 2:     //UpdateCar-------------------ITS WORKING
-                    GetCarDetail(carManager);
+                    //GetCarDetail(carManager);
                     UpdateCar(carManager);
                     break;
                 case 3:     //AddNewBrand-------------------ITS WORKING

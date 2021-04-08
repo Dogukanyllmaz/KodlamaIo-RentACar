@@ -26,7 +26,7 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect("IRentalService.Get")]
-        [SecuredOperation("rental.add,admin")]
+        [SecuredOperation("user")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
@@ -51,7 +51,7 @@ namespace Business.Concrete
             return null;
         }
 
-        [SecuredOperation("rental.delete,admin")]
+        [SecuredOperation("user")]
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
@@ -75,7 +75,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.Id == id));
         }
 
-        [SecuredOperation("rental.update,admin")]
+        [SecuredOperation("user")]
         [CacheRemoveAspect("IRentalService.Get")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)

@@ -59,5 +59,6 @@ namespace Business.Constants
         public static string ErrorUpdateCarImage = "Resim güncellenirken hata oluştu";
 
         public static User PasswordError { get; internal set; }
+        public static string MaintenanceTime = "Hata Maintenance";
     }
 }
