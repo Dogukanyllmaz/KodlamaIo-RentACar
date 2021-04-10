@@ -14,5 +14,6 @@ namespace Entities.Concrete
         public decimal DailyPrice { get; set; }
         public string Description { get; set; }
         public int ModelYear { get; set; }
+        public int CarFindexPoint { get; set; }
     }
 }

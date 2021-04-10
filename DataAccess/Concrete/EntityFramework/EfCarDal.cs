@@ -19,6 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from car in context.Cars.Where(c => c.Id == Id)
                              join color in context.Colors on car.ColorId equals color.Id
                              join brand in context.Brands on car.BrandId equals brand.Id
+                             let image = (from carImage in context.CarImages where car.Id == carImage.CarId select carImage.ImagePath)
                              select new CarDetailDto
                              {
                                  Id = car.Id,
@@ -30,7 +31,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear = car.ModelYear,
                                  DailyPrice = car.DailyPrice,
                                  Description = car.Description,
-                                 Status = !(context.Rentals.Any(r => r.CarId == Id && r.ReturnDate == null))
+                                 Status = !(context.Rentals.Any(r => r.CarId == Id && r.ReturnDate == null)),
+                                 CarFindexPoint = car.CarFindexPoint,
+                                 ImagePath = image.FirstOrDefault()
                              };
                 return result.SingleOrDefault();
             }
@@ -43,6 +46,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from car in context.Cars
                              join color in context.Colors on car.ColorId equals color.Id
                              join brand in context.Brands on car.BrandId equals brand.Id
+                             let image = (from carImage in context.CarImages where car.Id == carImage.CarId select carImage.ImagePath)
                              select new CarDetailDto
                              {
                                  Id = car.Id,
@@ -54,8 +58,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear = car.ModelYear,
                                  Description = car.Description,
                                  DailyPrice = car.DailyPrice,
-                                 ImagePath = (from im in context.CarImages where im.CarId == car.Id select im.ImagePath).FirstOrDefault(),
-                                 Status = !context.Rentals.Any(r => r.CarId == car.Id && r.ReturnDate == null)
+                                 ImagePath = image.Any() ? image.FirstOrDefault() : new CarImage { ImagePath = "Uploads/Images/CarImages/defaultImage.png" }.ImagePath,
+                                 Status = !context.Rentals.Any(r => r.CarId == car.Id && r.ReturnDate == null),
+                                 CarFindexPoint = car.CarFindexPoint
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
             }

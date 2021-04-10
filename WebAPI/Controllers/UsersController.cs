@@ -53,5 +53,63 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getclaims")]
+        public IActionResult GetClaims(int userId)
+        {
+            var result = _userService.GetClaimById(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _userService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyemail")]
+        public IActionResult GetByEmail(string email)
+        {
+
+            var result = _userService.GetByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyuserid")]
+        public IActionResult GetByUserId(int userId)
+        {
+
+            var result = _userService.GetByUserId(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("addfindexpoint")]
+        public IActionResult AddFindexPoint([FromBody] int userId)
+        {
+            var result = _userService.AddFindexPoint(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
     }
 }

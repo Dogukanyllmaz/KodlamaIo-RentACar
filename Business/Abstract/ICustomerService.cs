@@ -16,5 +16,6 @@ namespace Business.Abstract
         IDataResult<Customer> GetCustomerById(int id);
         IDataResult<List<CustomerDetailDto>> GetCustomerDetails();
         IResult AddTransactionalTest(Customer customer);
+        IDataResult<List<Customer>> GetByUserId(int UserId);
     }
 }

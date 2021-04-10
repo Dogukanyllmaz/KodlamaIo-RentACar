@@ -8,10 +8,15 @@ namespace Business.Abstract
 {
     public interface IUserService
     {
-        IDataResult<List<OperationClaim>> GetClaims(User user);
-        User GetByMail(string email);
-        IResult Update(User user);
+        IDataResult<List<User>> GetAll();
         IResult Add(User user);
+        IResult Update(User user);
         IResult Delete(User user);
+        User GetByMail(string email);
+        IDataResult<List<OperationClaim>> GetClaims(User user);
+        IDataResult<List<OperationClaim>> GetClaimById(int userId);
+        IDataResult<List<User>> GetByEmail(string email);
+        IDataResult<User> GetByUserId(int userId);
+        IResult AddFindexPoint(int userId);
     }
 }

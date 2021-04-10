@@ -9,6 +9,7 @@ using System.Text;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
+using Core.Utilities.Security.Hashing;
 
 namespace Business.Concrete
 {
@@ -48,5 +49,46 @@ namespace Business.Concrete
             _userdal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
+
+        public IDataResult<List<User>> GetAll()
+        {
+           
+            return new SuccessDataResult<List<User>>(_userdal.GetAll(), Messages.UserListed);
+        }
+
+        public IDataResult<User> GetByUserId(int userId)
+        {
+            return new SuccessDataResult<User>(_userdal.Get(user => user.Id == userId));
+        }
+
+        public IDataResult<List<User>> GetByEmail(string email)
+        {
+            return new SuccessDataResult<List<User>>(_userdal.GetAll(user => user.Email == email));
+        }
+
+        public IResult AddFindexPoint(int userId)
+        {
+            var result = GetByUserId(userId);
+
+            if (result.Data.FindexPoint < 1900)
+            {
+                result.Data.FindexPoint += 50;
+                Update(result.Data);
+            }
+            else
+            {
+                return new ErrorResult(Messages.findexPointMax);
+            }
+
+
+            return new SuccessResult(Messages.findexPointAdd);
+
+        }
+        public IDataResult<List<OperationClaim>> GetClaimById(int userId)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userdal.GetClaimById(userId));
+        }
+
+
     }
 }

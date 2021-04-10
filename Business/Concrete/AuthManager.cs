@@ -71,5 +71,29 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
+
+        public IResult ChangePassword(ChangePasswordDto changePasswordDto)
+        {
+            byte[] passwordHash, passwordSalt;
+            var userToCheck = _userService.GetByUserId(changePasswordDto.UserId).Data;
+            if (userToCheck == null)
+            {
+                return new ErrorResult(Messages.User_Not_Found);
+            }
+            if (!HashingHelper.VerifyPasswordHash(changePasswordDto.OldPassword, userToCheck.PasswordHash, userToCheck.PasswordSalt))
+            {
+                return new ErrorResult(Messages.PasswordError);
+            }
+
+            if (changePasswordDto.OldPassword == changePasswordDto.NewPassword)
+            {
+                return new ErrorResult(Messages.PasswordSame);
+            }
+            HashingHelper.CreatePasswordHash(changePasswordDto.NewPassword, out passwordHash, out passwordSalt);
+            userToCheck.PasswordHash = passwordHash;
+            userToCheck.PasswordSalt = passwordSalt;
+            _userService.Update(userToCheck);
+            return new SuccessResult(Messages.PasswordUpdated);
+        }
     }
 }

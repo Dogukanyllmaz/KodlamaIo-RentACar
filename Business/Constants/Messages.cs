@@ -58,7 +58,21 @@ namespace Business.Constants
         public static string UpdatedCarImage = "Resim güncellendi";
         public static string ErrorUpdateCarImage = "Resim güncellenirken hata oluştu";
 
-        public static User PasswordError { get; internal set; }
+        public static string PasswordError = "Parola hatalı";
+        public static string CardAdded = "Kart eklendi";
+        public static string CardExist = "Kart daha önce kaydedilmiş";
+        public static string CardInfoSuccess = "Kart bilgileri doğrulandı";
+        public static string CardDeleted = "Kart silindi";
+        public static string CardUpdated = "Kart bilgileri güncellendi";
+        public static string InsufficientBalance = "Yetersiz bakiye";
+
         public static string MaintenanceTime = "Hata Maintenance";
+        internal static string findexPointMax = "En yüksek findex puanına sahipsiniz";
+        internal static string findexPointAdd = "Findex puanı eklendi";
+        internal static string cardInfoError = "KArt Bilgileri Hatalı";
+        internal static string succeed = "Başarılı";
+
+        public static string PasswordSame = "Aynı parola";
+        public static string PasswordUpdated = "Parola güncellendi";
     }
 }

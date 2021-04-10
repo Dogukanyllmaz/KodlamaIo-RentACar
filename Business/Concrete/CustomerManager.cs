@@ -78,5 +78,9 @@ namespace Business.Concrete
             _customerDal.Update(customer);
             return new SuccessResult(Messages.CustomerUpdated);
         }
+        public IDataResult<List<Customer>> GetByUserId(int UserId)
+        {
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(customer => customer.UserId == UserId));
+        }
     }
 }
