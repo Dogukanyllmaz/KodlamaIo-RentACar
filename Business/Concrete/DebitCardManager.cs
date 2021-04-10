@@ -23,7 +23,7 @@ namespace Business.Concrete
             _rentalService = rentalService;
         }
 
-        [PerformanceAspect(7)]
+        
         public IDataResult<DebitCard> GetByCardNumber(string cardNumber)
         {
             return new SuccessDataResult<DebitCard>(_debitCardDal.Get(dc => dc.CardNumber == cardNumber));

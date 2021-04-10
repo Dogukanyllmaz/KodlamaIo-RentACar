@@ -24,7 +24,7 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         [CacheRemoveAspect("ICustomerService.Get")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)

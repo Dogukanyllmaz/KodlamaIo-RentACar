@@ -34,7 +34,7 @@ namespace Business.Concrete
         }
 
 
-        [SecuredOperation("user")]
+        //[SecuredOperation("admin, user")]
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
