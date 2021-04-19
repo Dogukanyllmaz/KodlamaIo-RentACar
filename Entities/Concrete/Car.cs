@@ -15,5 +15,6 @@ namespace Entities.Concrete
         public string Description { get; set; }
         public int ModelYear { get; set; }
         public int CarFindexPoint { get; set; }
+        public int TypeId { get; set; }
     }
 }

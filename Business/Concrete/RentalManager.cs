@@ -26,7 +26,7 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect("IRentalService.Get")]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {

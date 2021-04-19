@@ -48,6 +48,17 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<SaveCardManager>().As<ISaveCardService>();
             builder.RegisterType<EfSaveCardDal>().As<ISaveCardDal>();
 
+            builder.RegisterType<VehicleTypeManager>().As<IVehicleTypeService>();
+            builder.RegisterType<EfVehicleTypeDal>().As<IVehicleTypeDal>();
+
+            builder.RegisterType<FindexScoreManager>().As<IFindexScoreService>();
+            builder.RegisterType<EfFindexScoreDal>().As<IFindexScoreDal>();
+
+            builder.RegisterType<CreditCardManager>().As<ICreditCardService>();
+            builder.RegisterType<EfCreditCardDal>().As<ICreditCardDal>();
+
+
+
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

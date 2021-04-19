@@ -26,7 +26,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarValidator))]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
@@ -48,7 +48,7 @@ namespace Business.Concrete
         }
 
         [CacheRemoveAspect("ICarService.Get")]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
@@ -107,6 +107,12 @@ namespace Business.Concrete
         {
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
+        }
+
+        [CacheAspect]
+        public IDataResult<List<Car>> GetCarsByVehicleTypeId(int vehicleTypeId)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.TypeId == vehicleTypeId));
         }
     }
 }

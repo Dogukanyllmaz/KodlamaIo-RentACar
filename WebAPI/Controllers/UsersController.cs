@@ -99,17 +99,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("addfindexpoint")]
-        public IActionResult AddFindexPoint([FromBody] int userId)
-        {
-            var result = _userService.AddFindexPoint(userId);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-
-            return BadRequest(result);
-        }
+        
 
     }
 }

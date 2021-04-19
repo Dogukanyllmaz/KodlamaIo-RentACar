@@ -19,5 +19,6 @@ namespace Entities.DTOs
         public string ImagePath { get; set; }
         public bool Status { get; set; }
         public int CarFindexPoint { get; set; }
+        
     }
 }

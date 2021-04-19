@@ -19,6 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from car in context.Cars.Where(c => c.Id == Id)
                              join color in context.Colors on car.ColorId equals color.Id
                              join brand in context.Brands on car.BrandId equals brand.Id
+                             
                              let image = (from carImage in context.CarImages where car.Id == carImage.CarId select carImage.ImagePath)
                              select new CarDetailDto
                              {
@@ -46,6 +47,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from car in context.Cars
                              join color in context.Colors on car.ColorId equals color.Id
                              join brand in context.Brands on car.BrandId equals brand.Id
+                    
                              let image = (from carImage in context.CarImages where car.Id == carImage.CarId select carImage.ImagePath)
                              select new CarDetailDto
                              {

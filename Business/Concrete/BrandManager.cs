@@ -23,7 +23,7 @@ namespace Business.Concrete
         }
         
         [ValidationAspect(typeof(BrandValidator))]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         [CacheRemoveAspect("IBrandService.Get")]
 
         public IResult Add(Brand brand)
@@ -32,7 +32,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BrandAdded);
         }
 
-        [SecuredOperation("user")]
+       // [SecuredOperation("user")]
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);

@@ -74,5 +74,13 @@ namespace Business.Constants
 
         public static string PasswordSame = "Aynı parola";
         public static string PasswordUpdated = "Parola güncellendi";
+
+        public static string TypeAdded = "Type is added";
+        public static string TypeDeleted = "Type is deleted";
+        public static string TypeUpdated = "Type is updated";
+
+        public static string ScoreAdded = "Score is added";
+        public static string ScoreDeleted = "Score is deleted";
+        public static string ScoreUpdated = "Score is updated";
     }
 }

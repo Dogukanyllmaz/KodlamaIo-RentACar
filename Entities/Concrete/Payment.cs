@@ -7,6 +7,8 @@ namespace Entities.Concrete
 {
     public class Payment : IEntity
     {
-        public decimal Amount { get; set; }
+        public Rental Rental { get; set; }
+        public CreditCard CreditCard { get; set; }
+        public int Amount { get; set; } 
     }
 }

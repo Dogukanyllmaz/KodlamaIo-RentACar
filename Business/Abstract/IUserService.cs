@@ -17,6 +17,5 @@ namespace Business.Abstract
         IDataResult<List<OperationClaim>> GetClaimById(int userId);
         IDataResult<List<User>> GetByEmail(string email);
         IDataResult<User> GetByUserId(int userId);
-        IResult AddFindexPoint(int userId);
     }
 }

@@ -66,24 +66,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userdal.GetAll(user => user.Email == email));
         }
 
-        public IResult AddFindexPoint(int userId)
-        {
-            var result = GetByUserId(userId);
-
-            if (result.Data.FindexPoint < 1900)
-            {
-                result.Data.FindexPoint += 50;
-                Update(result.Data);
-            }
-            else
-            {
-                return new ErrorResult(Messages.findexPointMax);
-            }
-
-
-            return new SuccessResult(Messages.findexPointAdd);
-
-        }
+       
         public IDataResult<List<OperationClaim>> GetClaimById(int userId)
         {
             return new SuccessDataResult<List<OperationClaim>>(_userdal.GetClaimById(userId));
