@@ -10,7 +10,7 @@
 ## 🎯 About
 
 - It is written in accordance with SOLID principles. It is designed in the form of a multi-tier enterprise architecture, consisting of Entities, DataAccess, Business, Core and WebAPI layers. Jwt (Login and Register) and Middleware (error detection) are integrated into the system. 
-- Angular-cli is used for Front-end. Go to [Front-end.](https://github.com/Dogukanyllmaz/Rent-A-Car---FrontEnd)
+- Angular-cli is used for Front-end. Go to [Front-end.](https://github.com/Dogukanyllmaz/RentaCar-Frontend-Angular-)
 
 ## Latest Updates
 - Jwt is integrated into the system.
