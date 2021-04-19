@@ -10,7 +10,7 @@
 ## 🎯 About
 
 - It is written in accordance with SOLID principles. It is designed in the form of a multi-tier enterprise architecture, consisting of Entities, DataAccess, Business, Core and WebAPI layers. Jwt (Login and Register) and Middleware (error detection) are integrated into the system. 
-- Angular-cli is used for Front-end. Go to [Front-end.](https://github.com/Dogukanyllmaz/Rent-A-Car---FrontEnd)
+- Angular-cli is used for Front-end. Go to [Front-end.](https://github.com/Dogukanyllmaz/RentaCar-Frontend-Angular-)
 
 ## Latest Updates
 - Jwt is integrated into the system.
@@ -55,10 +55,17 @@
 ## Screenshots
 
 <p align="center">
-  <img src="./src/home.png" width= "600" alt ="Rent aCar">
-  <img src="./src/detail.png" width= "600" alt ="Rent aCar">
-  <img src="./src/rent.png" width= "600" alt ="Rent aCar">
-  <img src="./src/pay.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum1.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum2.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum3.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum4.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum5.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum6.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum7.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum8.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum9.png" width= "600" alt ="Rent aCar">
+   <img src="./src/img/sunum10.png" width= "600" alt ="Rent aCar">
+   
 </p>
 
 ---
